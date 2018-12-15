@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-8">
+      <form style="margin-top: 40px;" novalidate (ngSubmit)="orderFormVar.valid && createUpdateOrder()"   #orderFormVar="ngForm">
+        <div class="form-group">
+          <label for="name">Order Name
+            <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="order.name" required minlength=3 placeholder="Order Name (Required)"
+            #nameVar="ngModel" [ngClass]="{'is-invalid': orderFormVar.submitted && !nameVar.valid}">
+          <span class="invalid-feedback">
+            <span class="text-danger" *ngIf="nameVar.errors?.required"> Please enter Order name! </span>
+            <span class="text-danger" *ngIf="nameVar.errors?.minlength"> Order name should have atleast 3 characters! </span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="item">Item</label>
+          <span class="text-danger">*</span>
+          <select class="form-control" id="item" [(ngModel)]="order.item" name="item" #itemVar="ngModel" required [ngClass]="{'is-invalid': orderFormVar.submitted && !itemVar.valid}">
+            <option>Item 1</option>
+            <option>Item 2</option>
+            <option>Item 3</option>
+            <option>Item 4</option>
+          </select>
+          <span class="invalid-feedback">
+            <span class="text-danger" *ngIf="itemVar.errors?.required"> Please select Order item! </span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <span class="text-danger">*</span>
+          <select class="form-control" id="quantity" [(ngModel)]="order.quantity" name="quantity" required #quantityVar="ngModel" [ngClass]="{'is-invalid': orderFormVar.submitted && !quantityVar.valid}">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+          <span class="invalid-feedback">
+            <span class="text-danger" *ngIf="quantityVar.errors?.required"> Please select quantity! </span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <span class="text-danger">*</span>
+          <input type="email" class="form-control" id="email" required email name="email" [(ngModel)]="order.email" #emailVar="ngModel"
+            [ngClass]="{'is-invalid': orderFormVar.submitted && !emailVar.valid}">
+          <span class="invalid-feedback">
+            <span class="text-danger" *ngIf="emailVar.errors?.required"> Please enter Email! </span>
+            <span class="text-danger" *ngIf="emailVar.errors?.email"> Please enter a valid Email! </span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="phone" class="form-control" id="phone" [(ngModel)]="order.phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="comment">Instructions:</label>
+          <textarea class="form-control" rows="5" id="comment" name="comment" [(ngModel)]="order.instructions"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary d-block mx-auto" style="margin-bottom: 90px;">Submit</button>
+      </form>
+    </div>
+    <div class="col-sm-2"> </div>
+  </div>
+</div>

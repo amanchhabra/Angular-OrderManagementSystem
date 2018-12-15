@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm text-center">
+  <div class="container-fluid">
+    <a class="navbar-brand d-block mx-auto" href="/">
+      <h2>Order Management</h2>
+    </a>
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="nav-link text-info active" routerLink="/order" routerLinkActive="active">Create Order</a>
+        </li>
+        <li>
+          <a class="nav-link text-info" routerLink="/order-list" routerLinkActive="active">All Orders</a>
+        </li>
+        <li>
+          <a class="nav-link text-info" [routerLink]="['/order-list',true]" routerLinkActive="active">Modify Order</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<hr class="bg-info" style="height: 5px; margin: 0;">

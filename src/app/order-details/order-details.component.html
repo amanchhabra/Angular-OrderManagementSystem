@@ -1,0 +1,49 @@
+<div class="container" style="margin-bottom: 90px;">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="panel panel-info">
+        <div class="panel-heading text-center" style="margin-top: 20px;">
+          <h2>Order Details</h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped table-hover">
+            <tr>
+              <td> Order Name: </td>
+              <td> {{order?.name}} </td>
+            </tr>
+            <tr>
+              <td> Order ID: </td>
+              <td> {{order?.id}} </td>
+            </tr>
+            <tr>
+              <td> Item: </td>
+              <td> {{order?.item}} </td>
+            </tr>
+            <tr>
+              <td> Quantity: </td>
+              <td> {{order?.quantity}} </td>
+            </tr>
+            <tr>
+              <td> Email: </td>
+              <td> {{order?.email}} </td>
+            </tr>
+            <tr>
+              <td> Phone: </td>
+              <td> {{order?.phone}} </td>
+            </tr>
+            <tr>
+              <td> Instructions: </td>
+              <td style="width:60%"> {{order?.instructions}} </td>
+            </tr>
+          </table>
+          <div class="d-block mx-auto" style="width: max-content;">
+            <a class="btn btn-primary text-white" [routerLink]="['/update-order',order.id]" routerLinkActive="active">Modify Order</a>
+            <a class="btn btn-danger text-white" (click)="deleteOrder()">Delete Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>

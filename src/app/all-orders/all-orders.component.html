@@ -1,0 +1,32 @@
+<div class="container" style="margin-bottom: 80px;">
+  <h4 class="text-center" style="margin-top: 40px;"> Order List</h4>
+
+  <div class="alert alert-info alert-dismissible fade show" *ngIf="shouldModifyOrder">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Please select modify action in front of order that you want to modify!
+  </div>
+
+  <table class="table table-dark table-striped" style="margin-top: 20px;">
+    <tr>
+      <td>Order ID</td>
+      <td>Order Name</td>
+      <td>Item</td>
+      <td>Action</td>
+    </tr>
+    <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td>{{order.name}}</td>
+      <td>{{order.item}}</td>
+      <td>
+        <a class="text-white" [routerLink]="['/order',order.id]" routerLinkActive="active">
+          <i class="fa fa-info-circle fa-fw"></i> Order Details</a>
+        <br>
+        <a class="text-white" [routerLink]="['/update-order',order.id]" routerLinkActive="active" *ngIf="shouldModifyOrder">
+          <i class="fa fa-pencil fa-fw"></i> Modify Order</a>
+        <br>
+        <span class="text-white" style="cursor: pointer;" (click)="deleteOrder(order.id)" *ngIf="shouldModifyOrder">
+          <i class="fa fa-trash fa-fw"></i> Delete Order</span>
+      </td>
+    </tr>
+  </table>
+</div>
